@@ -1,5 +1,3 @@
-
-
 .topbar-responsive {
   background: #2c3840;
   padding: 1rem 1.5rem;
@@ -68,8 +66,8 @@
     padding: 0.25rem 0.45rem;
     top: 50%;
     -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-            transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
   }
   .topbar-responsive .top-bar-title span .menu-icon {
     margin-bottom: 4px;
@@ -97,44 +95,36 @@
 @-webkit-keyframes slideDown {
   0% {
     -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
+    transform: translateY(-100%);
   }
   100% {
     -webkit-transform: translateY(0%);
-            transform: translateY(0%);
+    transform: translateY(0%);
   }
 }
 
 @keyframes slideDown {
   0% {
     -webkit-transform: translateY(-100%);
-            transform: translateY(-100%);
+    transform: translateY(-100%);
   }
   100% {
     -webkit-transform: translateY(0%);
-            transform: translateY(0%);
+    transform: translateY(0%);
   }
 }
 
 @media screen and (max-width: 39.9375em) {
   .topbar-responsive-links {
     -webkit-animation-fill-mode: both;
-            animation-fill-mode: both;
+    animation-fill-mode: both;
     -webkit-animation-duration: 0.5s;
-            animation-duration: 0.5s;
+    animation-duration: 0.5s;
     width: 100%;
     -webkit-animation: fadeIn 1s ease-in;
-            animation: fadeIn 1s ease-in;
+    animation: fadeIn 1s ease-in;
   }
 }
-
-
-
-
-
-
-
-
 
 .subnav-hero-section {
   text-align: center;
@@ -146,11 +136,11 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   -webkit-justify-content: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   height: 300px;
 }
 
@@ -191,11 +181,6 @@
   background: rgba(254, 254, 254, 0.15);
 }
 
-
-
-
-
-
 .input-group-rounded .input-group-field {
   border-radius: 5000px 0 0 5000px;
   padding-left: 1rem;
@@ -205,4 +190,3 @@
   border-radius: 0 5000px 5000px 0;
   font-size: 0.8rem;
 }
-
