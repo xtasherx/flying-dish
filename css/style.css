@@ -1,3 +1,5 @@
+
+/* Top Nav */
 .topbar-responsive {
   background: #2c3840;
   padding: 1rem 1.5rem;
@@ -66,8 +68,8 @@
     padding: 0.25rem 0.45rem;
     top: 50%;
     -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
   }
   .topbar-responsive .top-bar-title span .menu-icon {
     margin-bottom: 4px;
@@ -95,37 +97,41 @@
 @-webkit-keyframes slideDown {
   0% {
     -webkit-transform: translateY(-100%);
-    transform: translateY(-100%);
+            transform: translateY(-100%);
   }
   100% {
     -webkit-transform: translateY(0%);
-    transform: translateY(0%);
+            transform: translateY(0%);
   }
 }
 
 @keyframes slideDown {
   0% {
     -webkit-transform: translateY(-100%);
-    transform: translateY(-100%);
+            transform: translateY(-100%);
   }
   100% {
     -webkit-transform: translateY(0%);
-    transform: translateY(0%);
+            transform: translateY(0%);
   }
 }
 
 @media screen and (max-width: 39.9375em) {
   .topbar-responsive-links {
     -webkit-animation-fill-mode: both;
-    animation-fill-mode: both;
+            animation-fill-mode: both;
     -webkit-animation-duration: 0.5s;
-    animation-duration: 0.5s;
+            animation-duration: 0.5s;
     width: 100%;
     -webkit-animation: fadeIn 1s ease-in;
-    animation: fadeIn 1s ease-in;
+            animation: fadeIn 1s ease-in;
   }
 }
 
+
+
+
+/* Subnav */
 .subnav-hero-section {
   text-align: center;
   background: #1779ba;
@@ -136,16 +142,17 @@
   display: -ms-flexbox;
   display: flex;
   -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   height: 300px;
 }
 
 .subnav-hero-section .subnav-hero-headline {
   color: #fefefe;
+  padding: 40px;
 }
 
 .subnav-hero-subnav {
@@ -181,6 +188,11 @@
   background: rgba(254, 254, 254, 0.15);
 }
 
+
+
+
+
+/* Input field and search button */
 .input-group-rounded .input-group-field {
   border-radius: 5000px 0 0 5000px;
   padding-left: 1rem;
@@ -189,4 +201,78 @@
 .input-group-rounded .input-group-button .button {
   border-radius: 0 5000px 5000px 0;
   font-size: 0.8rem;
+  margin-right: 30px;
 }
+
+/* Recipe Cards */
+
+  .container {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+
+  .basic-card {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-bottom: 1rem;
+    border: 1px solid #e6e6e6;
+    border-radius: 0;
+    background: #fefefe;
+    box-shadow: none;
+    overflow: hidden;
+    color: #0a0a0a;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    margin: 10px;
+    width: 50%;
+  }
+
+  
+  .basic-card > :last-child {
+    margin-bottom: 0;
+  }
+  
+  .basic-card-image {
+    grid-row-end: 4;
+    -ms-grid-row: 1;
+        grid-row-start: 1;
+  }
+  
+  .basic-card-image img {
+    width: 100%;
+  }
+  
+  .basic-card-content {
+    border: 0;
+    grid-row-start: 3 / 4;
+    margin: 0;
+    overflow: scroll;
+  }
+  
+  
+
+
+
+
+
+
+
+/* Footer */
+
+
+
+
+
+
