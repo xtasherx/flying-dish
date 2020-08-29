@@ -15,31 +15,31 @@
     />
     <title>Recipe App</title>
     <link rel="stylesheet" href="css/style.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("user_KA18lhvFuEmv0IYKWf8EX");
+   })();
+</script>
   </head>
+
   <body>
+    <!--Top Nav-->
     <nav class="top-bar topbar-responsive">
       <div class="top-bar-title">
         <span data-responsive-toggle="topbar-responsive" data-hide-for="medium">
           <button class="menu-icon" type="button" data-toggle></button>
         </span>
-        <a class="topbar-responsive-logo" href="#"
-          ><strong>Site Title</strong></a
-        >
+        <a class="topbar-responsive-logo" href="#"><strong>flyingDish</strong></a>
       </div>
       <div id="topbar-responsive" class="topbar-responsive-links">
         <div class="top-bar-right">
           <ul class="menu simple vertical medium-horizontal">
             <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Works</a></li>
-            <li><a href="#">News</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#">Quick Pick Meal</a></li>
+            <li><a href="#">Quick Pick Snack</a></li>
             <li>
-              <button
-                type="button"
-                class="button hollow topbar-responsive-button"
-              >
+              <button type="button" class="button hollow topbar-responsive-button">
                 Categories
               </button>
             </li>
@@ -47,26 +47,89 @@
         </div>
       </div>
     </nav>
+    <!--Sub Nav-->
     <header class="hero-search-filter">
       <header class="subnav-hero-section">
         <h1 class="subnav-hero-headline">flyingDish</h1>
+        <!--Search field and button-->
         <div class="input-group input-group-rounded">
           <input class="input-group-field" type="search" />
           <div class="input-group-button">
             <input type="submit" class="button secondary" value="Search" />
           </div>
         </div>
-        <ul class="subnav-hero-subnav">
-          <li><a href="#">Take Action!</a></li>
-          <li><a href="#" class="is-active">Carpe Diem!</a></li>
-          <li>
-            <a target="_blank" href="https://zurb.com/responsive"
-              >Just do it!</a
-            >
-          </li>
-        </ul>
       </header>
     </header>
+    <!--Main Section/Recipe Cards-->
+    <div class="container">
+      <div class="basic-card">
+        <div class="basic-card-image">
+          <img src="https://placeimg.com/640/480/animals">
+        </div>
+        <div class="basic-card-content content callout secondary">
+          <h5>Content</h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi saepe, asperiores dolor nesciunt dolore, accusamus minus repellendus vero odio, quibusdam, ipsum nisi in a molestiae ex assumenda nulla eveniet eos!</p>
+        </div>
+        <div class="links callout primary">
+          <ul class="menu">
+            <li>
+              <a href="#">Website</a>
+            </li>
+            <li>
+              <a href="#">Email</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="basic-card">
+        <div class="basic-card-image">
+          <img src="https://placeimg.com/640/480/animals">
+        </div>
+        <div class="basic-card-content content callout secondary">
+          <h5>Content</h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi saepe, asperiores dolor nesciunt dolore, accusamus minus repellendus vero odio, quibusdam, ipsum nisi in a molestiae ex assumenda nulla eveniet eos!</p>
+        </div>
+        <div class="links callout primary">
+          <ul class="menu">
+            <li>
+              <a href="#">Website</a>
+            </li>
+            <li>
+              <a href="#">Email</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="basic-card">
+        <div class="basic-card-image">
+          <img src="https://placeimg.com/640/480/animals">
+        </div>
+        <div class="basic-card-content content callout secondary">
+          <h5>Content</h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi saepe, asperiores dolor nesciunt dolore, accusamus minus repellendus vero odio, quibusdam, ipsum nisi in a molestiae ex assumenda nulla eveniet eos!</p>
+        </div>
+        <div class="links callout primary">
+          <ul class="menu">
+            <li>
+              <a href="#">Website</a>
+            </li>
+            <li>
+              <a href="#">Email</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    
+
+
+    <!--Footer-->
+
+    
+    
 
     <script
       src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
