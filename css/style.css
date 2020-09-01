@@ -236,7 +236,7 @@
     -ms-grid-rows: 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
     margin: 10px;
-    width: 50%;
+    width: 30%;
   }
 
   
@@ -271,7 +271,41 @@
 
 /* Footer */
 
+html body {
+  height: 100%;
+}
 
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+.sticky-footer-css {
+  flex-shrink: 0;
+}
+
+.sticky-footer-css-body {
+  overflow: auto;
+}
+
+.sticky-footer-css .body-content {
+  background-color: #fff;
+}
+
+.sticky-footer-css .footer {
+  height: 10rem;
+  background-color: #2c3840;
+  color: #fff;
+  padding: 3rem;
+}
+
+.sticky-footer-css .footer .menu a {
+  color: #fff;
+}
 
 
 
