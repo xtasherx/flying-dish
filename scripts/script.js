@@ -1,110 +1,55 @@
-const recipeTitle = document.querySelectorAll(`.recipe-title`);
-const recipeImage = document.querySelectorAll(`.recipe-image`);
-const siteURL = document.querySelectorAll(`.site-url`);
-const ingredientsList = document.querySelectorAll(`.ingredients-list`);
 let userSearch = "mango";
-// const dummyObj = {
-//   recipe1: {
-//     extendedIngredients: {
-//       aisle: "Nut butters, Jams, and Honey",
-//       amount: 2,
-//       consistency: "liquid",
-//       id: 19296,
-//       image: "honey.png",
-//       name: "honey",
-//       original: "2 tablespoons honey",
-//       originalName: "honey",
-//       originalString: "2 tablespoons honey",
-//       unit: "tablespoons",
-//     },
-//     image: "https://spoonacular.com/recipeImages/544227-556x370.jpg",
-//     instructions:
-//       "1. Combine all ingredients in a blender and blend until pureed.2. Pour into popsicle molds and freeze.3. Serve.",
-//     sourceUrl: "http://weelicious.com/2010/07/20/mango-pops/",
-//     title: "Mango Pops",
-//     summary:
-//       "Mango Pops is a <b>gluten free, dairy free, and vegetarian</b> dessert. One serving contains <b>111 calories</b>, <b>1g of protein</b>, and <b>1g of fat</b>. For <b>85 cents per serving</b>",
-//   },
-//   recipe2: {
-//     extendedIngredients: {
-//       aisle: "Nut butters, Jams, and Honey",
-//       amount: 2,
-//       consistency: "liquid",
-//       id: 19296,
-//       image: "honey.png",
-//       name: "honey",
-//       original: "2 tablespoons honey",
-//       originalName: "honey",
-//       originalString: "2 tablespoons honey",
-//       unit: "tablespoons",
-//     },
-//     image: "https://spoonacular.com/recipeImages/544227-556x370.jpg",
-//     instructions:
-//       "1. Combine all ingredients in a blender and blend until pureed.2. Pour into popsicle molds and freeze.3. Serve.",
-//     sourceUrl: "http://weelicious.com/2010/07/20/mango-pops/",
-//     title: "Mango Pops",
-//     summary:
-//       "Mango Pops is a <b>gluten free, dairy free, and vegetarian</b> dessert. One serving contains <b>111 calories</b>, <b>1g of protein</b>, and <b>1g of fat</b>. For <b>85 cents per serving</b>",
-//   },
-//   recipe3: {
-//     extendedIngredients: {
-//       aisle: "Nut butters, Jams, and Honey",
-//       amount: 2,
-//       consistency: "liquid",
-//       id: 19296,
-//       image: "honey.png",
-//       name: "honey",
-//       original: "2 tablespoons honey",
-//       originalName: "honey",
-//       originalString: "2 tablespoons honey",
-//       unit: "tablespoons",
-//     },
-//     image: "https://spoonacular.com/recipeImages/544227-556x370.jpg",
-//     instructions:
-//       "1. Combine all ingredients in a blender and blend until pureed.2. Pour into popsicle molds and freeze.3. Serve.",
-//     sourceUrl: "http://weelicious.com/2010/07/20/mango-pops/",
-//     title: "Mango Pops",
-//     summary:
-//       "Mango Pops is a <b>gluten free, dairy free, and vegetarian</b> dessert. One serving contains <b>111 calories</b>, <b>1g of protein</b>, and <b>1g of fat</b>. For <b>85 cents per serving</b>",
-//   },
-// };
+const searchButton = document.querySelector(".search-btn");
+const searchBar = document.querySelector(".search-bar");
+const cards = document.querySelectorAll(".basic-card");
+const titles = document.querySelectorAll(".recipe-title");
+const recipeImg = document.querySelectorAll(".recipe-img");
+const recipeSum = document.querySelectorAll(".recipe-sum");
 
-// function to return the full list of ingredients
-
-function returnExtracted(result) {
-  responseURL = `https://api.spoonacular.com/recipes/extract?url=${result}&apiKey=4f924dd683af4b90b667d59fcf07d711`;
-  console.log(result);
-}
-
-// function to return urls
-function getUrls() {
-  let responseURL = `https://api.spoonacular.com/recipes/complexSearch/?query=${userSearch}&maxReadyTime=20&addRecipeInformation=true&max-used-ingredients=10&number=5&apiKey=4f924dd683af4b90b667d59fcf07d711`;
+// function to return recipes and write them to the cards
+function getRecipes() {
+  let responseURL = `https://api.spoonacular.com/recipes/complexSearch/?query=${userSearch}&maxReadyTime=20&addRecipeInformation=true&fillIngredients=true&max-used-ingredients=10&number=6&apiKey=4f924dd683af4b90b667d59fcf07d711`;
   $.ajax({
     url: responseURL,
     method: "GET",
   }).then(function (response) {
-    returnExtracted(response.results[0].sourceUrl);
-    returnExtracted(response.results[1].sourceUrl);
-    returnExtracted(response.results[2].sourceUrl);
-    returnExtracted(response.results[3].sourceUrl);
-    returnExtracted(response.results[4].sourceUrl);
+    console.log(response);
+    cards.forEach(function (card, i) {
+      titles[i].textContent = `${response.results[i].title}`;
+      // recipeSum[i].innerHTML = `${response.results[i].summary}`;
+      recipeImg[i].setAttribute(`src`, `${response.results[i].image}`);
+      let instHolder = response.results[i].analyzedInstructions[0].steps;
+      let ingrHolder = response.results[i].extendedIngredients;
+      // this might need to be in a function for instr/ingred
+      let instruction = "";
+      let ingredient = "";
+      // loop for instructions array inside response
+      instHolder.forEach(function (item) {
+        instruction += `${item.step}</br>`;
+      });
+      // loop for ingredients array inside response
+      ingrHolder.forEach(function (item) {
+        ingredient += `${item.original}</br>`;
+      });
+
+      console.log(ingredient);
+      recipeSum[i].innerHTML = instruction;
+    });
   });
 }
+// inital recipes for page load
+getRecipes();
+// event listener for search button
+searchButton.addEventListener("click", function () {
+  userSearch = searchBar.value;
+  getRecipes();
+});
 
-// getUrls();
+// TO DO /////////////////////////////
 
-/////////////////////////////////////////////////////
-/////////////////////////////////////////////////////
-
-// responseURL = `https://api.spoonacular.com/recipes/extract?url=${recipePointer}&apiKey=4f924dd683af4b90b667d59fcf07d711`;
-// recipeTitle.forEach(function (title, i) {
-//   title.innerHTML = `${}`;
-// });
-
-// recipeImage.forEach(function (image, i) {
-//   image.setAttribute(`src`, `${}`);
-// });
-
-// siteURL.forEach(function (a, i) {
-//   a.setAttribute(`href`, `${}`);
-// });
+// wire up website button
+//////should go to website for current recipe
+// create ul for igredients and instructions
+// dynamically create lis for both
+// make textContent/innerHTML the current array item
+// append new li
