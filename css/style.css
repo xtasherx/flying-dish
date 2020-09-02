@@ -246,7 +246,7 @@
   
   .basic-card-image {
     grid-row-end: 4;
-    -ms-grid-row: 1;
+    -ms-grid-rows: 1;
         grid-row-start: 1;
   }
   
