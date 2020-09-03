@@ -151,7 +151,7 @@
 }
 
 .subnav-hero-section .subnav-hero-headline {
-  color: #fefefe;
+  font-family: 'Orienta', sans-serif;  color: #fefefe;
   padding: 40px;
 }
 
@@ -260,8 +260,19 @@
     margin: 0;
     overflow: scroll;
   }
+
+  .recipe-title {
+    font-weight: bolder;
+  }
   
-  
+  .ingredient-title {
+    text-decoration: underline;
+    font-weight: bold;
+  }
+
+  .instruction-title {
+    font-weight: bold;
+  }
 
 
 
