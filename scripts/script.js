@@ -5,10 +5,12 @@ const cards = document.querySelectorAll(".basic-card");
 const titles = document.querySelectorAll(".recipe-title");
 const recipeImg = document.querySelectorAll(".recipe-img");
 const recipeSum = document.querySelectorAll(".recipe-sum");
+const recipeIng = document.querySelectorAll(".recipe-ing");
+const recipeInst = document.querySelectorAll(".recipe-inst");
 
 // function to return recipes and write them to the cards
 function getRecipes() {
-  let responseURL = `https://api.spoonacular.com/recipes/complexSearch/?query=${userSearch}&maxReadyTime=20&addRecipeInformation=true&fillIngredients=true&max-used-ingredients=10&number=6&apiKey=4f924dd683af4b90b667d59fcf07d711`;
+  let responseURL = `https://api.spoonacular.com/recipes/complexSearch/?query=${userSearch}&instructionsRequired=true&maxReadyTime=20&addRecipeInformation=true&fillIngredients=true&max-used-ingredients=10&number=6&apiKey=4f924dd683af4b90b667d59fcf07d711`;
   $.ajax({
     url: responseURL,
     method: "GET",
@@ -16,11 +18,10 @@ function getRecipes() {
     console.log(response);
     cards.forEach(function (card, i) {
       titles[i].textContent = `${response.results[i].title}`;
-      // recipeSum[i].innerHTML = `${response.results[i].summary}`;
+      recipeSum[i].innerHTML = `${response.results[i].summary}`;
       recipeImg[i].setAttribute(`src`, `${response.results[i].image}`);
-      let instHolder = response.results[i].analyzedInstructions[0].steps;
-      let ingrHolder = response.results[i].extendedIngredients;
-      // this might need to be in a function for instr/ingred
+      const instHolder = response.results[i].analyzedInstructions[0].steps;
+      const ingrHolder = response.results[i].extendedIngredients;
       let instruction = "";
       let ingredient = "";
       // loop for instructions array inside response
@@ -33,7 +34,8 @@ function getRecipes() {
       });
 
       console.log(ingredient);
-      recipeSum[i].innerHTML = instruction;
+      recipeIng[i].innerHTML = instruction;
+      recipeInst[i].innerHTML = ingredient;
     });
   });
 }
