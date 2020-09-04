@@ -8,6 +8,8 @@ const recipeSum = document.querySelectorAll(".recipe-sum");
 const recipeIng = document.querySelectorAll(".recipe-ing");
 const recipeInst = document.querySelectorAll(".recipe-inst");
 const siteLink = document.querySelectorAll(".site-url");
+const emailBtn = document.querySelectorAll(".email-btn");
+
 // object for emailjs parameters
 const data = {
   service_id: "contact_service",
@@ -33,7 +35,6 @@ function getRecipes() {
     cards.forEach(function (card, i) {
       let instruction = "";
       let ingredient = "";
-      let emailRecipe = ``;
       titles[i].textContent = `${response.results[i].title}`;
       recipeSum[
         i
@@ -54,14 +55,11 @@ function getRecipes() {
       recipeInst[i].innerHTML = instruction;
       recipeIng[i].innerHTML = ingredient;
       siteLink[i].setAttribute(`href`, `${response.results[i].sourceUrl}`);
-      emailRecipe = `
-      <h1> ${response.results[i].title}<h1></br>
-      Ingredient</br>
-      ${ingredient}</br>
-      Instructions</br>
-      ${instruction}
-      `;
-      console.log(emailRecipe);
+
+      // adds title to data attribute for this card----add additionals to flesh out email
+      emailBtn[i].setAttribute(`data-title`, `${response.results[i].title}`);
+      emailBtn[i].setAttribute(`data-ingredients`, `${ingredient}`);
+      emailBtn[i].setAttribute(`data-instructions`, instruction);
     });
   });
 }
@@ -70,19 +68,31 @@ getRecipes();
 // event listener for search button
 searchButton.addEventListener("click", function () {
   userSearch = searchBar.value;
-  getRecipes();
+  // getRecipes();
 });
 
-$.ajax("https://api.emailjs.com/api/v1.0/email/send", {
-  type: "POST",
-  data: JSON.stringify(data),
-  contentType: "application/json",
-})
-  .done(function () {
-    alert("Your mail is sent!");
-  })
-  .fail(function (error) {
-    alert("Oops... " + JSON.stringify(error));
+emailBtn.forEach(function name(params) {
+  params.addEventListener("click", () => {
+    console.log(event.target);
+    // adds data-title value to data object
+    data.template_params.title = event.target.getAttribute("data-title");
+    data.template_params.title = event.target.getAttribute("data-ingredients");
+    data.template_params.title = event.target.getAttribute("data-instructions");
+    console.log(data.template_params.title);
+    console.log(data.template_params.ingredients);
+    console.log(data.template_params.instructions);
   });
+});
+// $.ajax("https://api.emailjs.com/api/v1.0/email/send", {
+//   type: "POST",
+//   data: JSON.stringify(data),
+//   contentType: "application/json",
+// })
+//   .done(function () {
+//     alert("Your mail is sent!");
+//   })
+//   .fail(function (error) {
+//     alert("Oops... " + JSON.stringify(error));
+//   });
 
 // TO DO /////////////////////////////
