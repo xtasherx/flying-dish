@@ -58,7 +58,7 @@ function getRecipes() {
 
       // adds title to data attribute for this card----add additionals to flesh out email
       emailBtn[i].setAttribute(`data-title`, `${response.results[i].title}`);
-      emailBtn[i].setAttribute(`data-ingredients`, `${ingredient}`);
+      emailBtn[i].setAttribute(`data-ingredients`, ingredient);
       emailBtn[i].setAttribute(`data-instructions`, instruction);
     });
   });
@@ -76,13 +76,21 @@ emailBtn.forEach(function name(params) {
     console.log(event.target);
     // adds data-title value to data object
     data.template_params.title = event.target.getAttribute("data-title");
-    data.template_params.title = event.target.getAttribute("data-ingredients");
-    data.template_params.title = event.target.getAttribute("data-instructions");
+    data.template_params.ingredients = event.target.getAttribute(
+      "data-ingredients"
+    );
+    data.template_params.instructions = event.target.getAttribute(
+      "data-instructions"
+    );
     console.log(data.template_params.title);
     console.log(data.template_params.ingredients);
     console.log(data.template_params.instructions);
   });
 });
+
+// buttonPlaceholder.addEventListener("click", () => {
+//   data.template_params.email = emailFieldPlaceholder.value();
+//   data.template_params.name = nameFieldPlaceholder.value();
 // $.ajax("https://api.emailjs.com/api/v1.0/email/send", {
 //   type: "POST",
 //   data: JSON.stringify(data),
@@ -94,5 +102,6 @@ emailBtn.forEach(function name(params) {
 //   .fail(function (error) {
 //     alert("Oops... " + JSON.stringify(error));
 //   });
+// });
 
 // TO DO /////////////////////////////
