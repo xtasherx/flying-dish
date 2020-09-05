@@ -1,4 +1,4 @@
-let userSearch = "dessert";
+let userSearch = "dinner";
 const searchButton = document.querySelector(".search-btn");
 const searchBar = document.querySelector(".search-bar");
 const cards = document.querySelectorAll(".basic-card");
@@ -9,6 +9,7 @@ const recipeIng = document.querySelectorAll(".recipe-ing");
 const recipeInst = document.querySelectorAll(".recipe-inst");
 const siteLink = document.querySelectorAll(".site-url");
 const emailBtn = document.querySelectorAll(".email-btn");
+// const submitEmailBtn = document.querySelector(".submit-form");
 
 // object for emailjs parameters
 const data = {
@@ -18,8 +19,8 @@ const data = {
   template_params: {
     email: "xtasherx@gmail.com",
     title: "I'm a recipe",
-    instructions: "stir",
-    ingredients: "rice",
+    image: "recipe-image",
+    website: "site-url",
     name: "tasha",
   },
 };
@@ -58,8 +59,11 @@ function getRecipes() {
 
       // adds title to data attribute for this card----add additionals to flesh out email
       emailBtn[i].setAttribute(`data-title`, `${response.results[i].title}`);
-      emailBtn[i].setAttribute(`data-ingredients`, ingredient);
-      emailBtn[i].setAttribute(`data-instructions`, instruction);
+      emailBtn[i].setAttribute(
+        `data-image`,
+        `<img src="${response.results[i].image}">`
+      );
+      emailBtn[i].setAttribute(`data-site`, `${response.results[i].sourceUrl}`);
     });
   });
 }
@@ -76,32 +80,29 @@ emailBtn.forEach(function name(params) {
     console.log(event.target);
     // adds data-title value to data object
     data.template_params.title = event.target.getAttribute("data-title");
-    data.template_params.ingredients = event.target.getAttribute(
-      "data-ingredients"
-    );
-    data.template_params.instructions = event.target.getAttribute(
-      "data-instructions"
-    );
+    data.template_params.ingredients = event.target.getAttribute("data-image");
+    data.template_params.instructions = event.target.getAttribute("data-site");
     console.log(data.template_params.title);
-    console.log(data.template_params.ingredients);
-    console.log(data.template_params.instructions);
+    console.log(data.template_params.image);
+    console.log(data.template_params.website);
   });
 });
 
-// buttonPlaceholder.addEventListener("click", () => {
-//   data.template_params.email = emailFieldPlaceholder.value();
-//   data.template_params.name = nameFieldPlaceholder.value();
-// $.ajax("https://api.emailjs.com/api/v1.0/email/send", {
-//   type: "POST",
-//   data: JSON.stringify(data),
-//   contentType: "application/json",
-// })
-//   .done(function () {
-//     alert("Your mail is sent!");
+// submitEmailBtn.addEventListener("click", () => {
+//   event.preventDefault();
+//   // data.template_params.email = emailFieldPlaceholder.value();
+//   // data.template_params.name = nameFieldPlaceholder.value();
+//   $.ajax("https://api.emailjs.com/api/v1.0/email/send", {
+//     type: "POST",
+//     data: JSON.stringify(data),
+//     contentType: "application/json",
 //   })
-//   .fail(function (error) {
-//     alert("Oops... " + JSON.stringify(error));
-//   });
+//     .done(function () {
+//       alert("Your mail is sent!");
+//     })
+//     .fail(function (error) {
+//       alert("Oops... " + JSON.stringify(error));
+//     });
 // });
 
 // TO DO /////////////////////////////
