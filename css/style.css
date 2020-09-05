@@ -6,8 +6,12 @@
 }
 
 .topbar-responsive .topbar-responsive-logo {
+  font-family: 'Dancing Script', cursive;
+  font-weight: bold;
+  font-size: 20px;
   color: #fefefe;
   vertical-align: middle;
+  margin-left: 3px;
 }
 
 .topbar-responsive .menu {
@@ -21,6 +25,8 @@
 .topbar-responsive .menu a {
   color: #fefefe;
   transition: color 0.15s ease-in;
+  font-family: 'Amaranth', sans-serif;
+  font-size: 25px;
 }
 
 .topbar-responsive .menu a:hover {
@@ -151,7 +157,9 @@
 }
 
 .subnav-hero-section .subnav-hero-headline {
-  font-family: 'Orienta', sans-serif;  color: #fefefe;
+  font-family: 'Amaranth', sans-serif;
+  font-weight: bold;
+  color: #fefefe;
   padding: 40px;
 }
 
@@ -189,9 +197,6 @@
 }
 
 
-
-
-
 /* Input field and search button */
 .input-group-rounded .input-group-field {
   border-radius: 5000px 0 0 5000px;
@@ -204,8 +209,52 @@
   margin-right: 30px;
 }
 
-/* Recipe Cards */
 
+/* About */
+.about-the-author {
+  background-color: #fefefe;
+  padding: 1rem;
+  border: 1px solid #cacaca;
+}
+
+.about-the-author .separator-left {
+  text-align: left;
+}
+
+.about-the-author .separator-left::before, .about-the-author .separator-left::after {
+  display: table;
+  content: ' ';
+  -webkit-flex-basis: 0;
+      -ms-flex-preferred-size: 0;
+          flex-basis: 0;
+  -webkit-order: 1;
+      -ms-flex-order: 1;
+          order: 1;
+}
+
+.about-the-author .separator-left::after {
+  clear: both;
+}
+
+.about-the-author .separator-left::after {
+  position: relative;
+  width: 5rem;
+  border-bottom: 0.125rem solid #1779ba;
+  margin: 0.3rem auto 0;
+  margin-left: 0;
+}
+
+.about-the-author .author-title {
+  text-transform: uppercase;
+}
+
+.about-the-author .author-image {
+  width: 600px;
+  height: 550px;
+}
+
+
+/* Recipe Cards */
   .container {
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -275,13 +324,24 @@
   }
 
 
-
-
-
+/* Pagination */
+@media screen and (max-width: 39.9375em) {
+  .pagination:after {
+    display: inline-block;
+    content: attr(data-page) " of " attr(data-total);
+    position: relative;
+    text-align: center;
+    width: 80px;
+    right: 80px;
+  }
+  .pagination-next {
+    position: relative;
+    left: 80px;
+  }
+}
 
 
 /* Footer */
-
 html body {
   height: 100%;
 }
@@ -312,6 +372,8 @@ body {
   background-color: #2c3840;
   color: #fff;
   padding: 3rem;
+  font-family: 'Handlee';
+  font-size: 20px;
 }
 
 .sticky-footer-css .footer .menu a {
