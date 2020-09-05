@@ -151,7 +151,7 @@
 }
 
 .subnav-hero-section .subnav-hero-headline {
-  color: #fefefe;
+  font-family: 'Orienta', sans-serif;  color: #fefefe;
   padding: 40px;
 }
 
@@ -236,7 +236,7 @@
     -ms-grid-rows: 1fr 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr;
     margin: 10px;
-    width: 50%;
+    width: 30%;
   }
 
   
@@ -246,7 +246,7 @@
   
   .basic-card-image {
     grid-row-end: 4;
-    -ms-grid-row: 1;
+    -ms-grid-rows: 1;
         grid-row-start: 1;
   }
   
@@ -260,8 +260,19 @@
     margin: 0;
     overflow: scroll;
   }
+
+  .recipe-title {
+    font-weight: bolder;
+  }
   
-  
+  .ingredient-title {
+    text-decoration: underline;
+    font-weight: bold;
+  }
+
+  .instruction-title {
+    font-weight: bold;
+  }
 
 
 
@@ -271,7 +282,41 @@
 
 /* Footer */
 
+html body {
+  height: 100%;
+}
 
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+.sticky-footer-css {
+  flex-shrink: 0;
+}
+
+.sticky-footer-css-body {
+  overflow: auto;
+}
+
+.sticky-footer-css .body-content {
+  background-color: #fff;
+}
+
+.sticky-footer-css .footer {
+  height: 10rem;
+  background-color: #2c3840;
+  color: #fff;
+  padding: 3rem;
+}
+
+.sticky-footer-css .footer .menu a {
+  color: #fff;
+}
 
 
 
