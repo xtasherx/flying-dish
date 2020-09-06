@@ -9,7 +9,7 @@ const recipeIng = document.querySelectorAll(".recipe-ing");
 const recipeInst = document.querySelectorAll(".recipe-inst");
 const siteLink = document.querySelectorAll(".site-url");
 const emailBtn = document.querySelectorAll(".email-btn");
-// const submitEmailBtn = document.querySelector(".submit-form");
+const submitEmailBtn = document.querySelector("#about-me");
 
 // object for emailjs parameters
 const data = {
@@ -21,6 +21,9 @@ const data = {
     title: "I'm a recipe",
     image: "recipe-image",
     website: "site-url",
+    ingredients: "rice",
+    instructions: "stir",
+    readyTime: "10 minutes",
     name: "tasha",
   },
 };
@@ -44,26 +47,32 @@ function getRecipes() {
       const instHolder = response.results[i].analyzedInstructions[0].steps;
       const ingrHolder = response.results[i].extendedIngredients;
 
+      siteLink[i].setAttribute(`href`, `${response.results[i].sourceUrl}`);
+
       // loop for instructions array inside response
       instHolder.forEach(function (item) {
-        instruction += `${item.step}</br>`;
+        instruction += `<p>${item.step}</p>`;
       });
       // loop for ingredients array inside response
       ingrHolder.forEach(function (item) {
-        ingredient += `${item.original}</br>`;
+        ingredient += `<p>${item.original}</p>`;
       });
 
       recipeInst[i].innerHTML = instruction;
       recipeIng[i].innerHTML = ingredient;
-      siteLink[i].setAttribute(`href`, `${response.results[i].sourceUrl}`);
-
-      // adds title to data attribute for this card----add additionals to flesh out email
       emailBtn[i].setAttribute(`data-title`, `${response.results[i].title}`);
       emailBtn[i].setAttribute(
         `data-image`,
-        `<img src="${response.results[i].image}">`
+        `<img style="width:494px;margin-bottom:0px;"src="${response.results[i].image}">`
       );
+
       emailBtn[i].setAttribute(`data-site`, `${response.results[i].sourceUrl}`);
+      emailBtn[i].setAttribute(`data-ingredients`, ingredient);
+      emailBtn[i].setAttribute(`data-instructions`, instruction);
+      emailBtn[i].setAttribute(
+        `data-time`,
+        `Ready in: ${response.results[i].readyInMinutes} minutes.`
+      );
     });
   });
 }
@@ -77,32 +86,33 @@ searchButton.addEventListener("click", function () {
 
 emailBtn.forEach(function name(params) {
   params.addEventListener("click", () => {
-    console.log(event.target);
     // adds data-title value to data object
     data.template_params.title = event.target.getAttribute("data-title");
-    data.template_params.ingredients = event.target.getAttribute("data-image");
-    data.template_params.instructions = event.target.getAttribute("data-site");
-    console.log(data.template_params.title);
-    console.log(data.template_params.image);
-    console.log(data.template_params.website);
+    data.template_params.image = event.target.getAttribute("data-image");
+    data.template_params.website = event.target.getAttribute("data-site");
+    data.template_params.ingredients = event.target.getAttribute(
+      "data-ingredients"
+    );
+    data.template_params.instructions = event.target.getAttribute(
+      "data-instructions"
+    );
+    data.template_params.readyTime = event.target.getAttribute("data-time");
   });
 });
 
-// submitEmailBtn.addEventListener("click", () => {
-//   event.preventDefault();
-//   // data.template_params.email = emailFieldPlaceholder.value();
-//   // data.template_params.name = nameFieldPlaceholder.value();
-//   $.ajax("https://api.emailjs.com/api/v1.0/email/send", {
-//     type: "POST",
-//     data: JSON.stringify(data),
-//     contentType: "application/json",
-//   })
-//     .done(function () {
-//       alert("Your mail is sent!");
-//     })
-//     .fail(function (error) {
-//       alert("Oops... " + JSON.stringify(error));
-//     });
-// });
-
-// TO DO /////////////////////////////
+submitEmailBtn.addEventListener("click", () => {
+  event.preventDefault();
+  // data.template_params.email = emailFieldPlaceholder.value();
+  // data.template_params.name = nameFieldPlaceholder.value();
+  $.ajax("https://api.emailjs.com/api/v1.0/email/send", {
+    type: "POST",
+    data: JSON.stringify(data),
+    contentType: "application/json",
+  })
+    .done(function () {
+      alert("Your mail is sent!");
+    })
+    .fail(function (error) {
+      alert("Oops... " + JSON.stringify(error));
+    });
+});
