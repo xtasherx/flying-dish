@@ -81,7 +81,7 @@ getRecipes();
 // event listener for search button
 searchButton.addEventListener("click", function () {
   userSearch = searchBar.value;
-  // getRecipes();
+  getRecipes();
 });
 
 emailBtn.forEach(function name(params) {
