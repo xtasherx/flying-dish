@@ -1,5 +1,14 @@
-// Initial user search for page load
-let userSearch = "dinner";
+// Initial user search for page load/local storage check
+let userSearch;
+let placeHold;
+if (localStorage.getItem("search")) {
+  placeHold = localStorage.getItem("search");
+  userSearch = placeHold;
+} else {
+  placeHold = "dinner";
+  userSearch = placeHold;
+}
+
 // DOM selection
 const searchButton = document.querySelector(".search-btn");
 const searchBar = document.querySelector(".search-bar");
@@ -82,12 +91,14 @@ function getRecipes() {
     });
   });
 }
+
 // inital recipes for page load
 getRecipes();
 // event listener for search button
 searchButton.addEventListener("click", function () {
   userSearch = searchBar.value;
   getRecipes();
+  userSearch = localStorage.setItem("search", searchBar.value);
 });
 
 // event listener for email me button on card
