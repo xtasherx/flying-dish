@@ -1,4 +1,4 @@
-// Initial user search for page load
+// Initial user search for page load/local storage check
 let userSearch;
 let placeHold;
 if (localStorage.getItem("search")) {
@@ -91,6 +91,7 @@ function getRecipes() {
     });
   });
 }
+
 // inital recipes for page load
 getRecipes();
 // event listener for search button
