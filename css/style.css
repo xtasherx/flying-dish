@@ -3,8 +3,35 @@ body{
   color: #2C3840;
   font-family: 'Montserrat', sans-serif;
 }
+
+/* multiclass styles  */
+.subnav-hero-section,.about-the-author,.container,.basic-card,#card-holder,#links-div{
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+.subnav-hero-section,.about-the-author,.container,.basic-card,#card-holder{
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.subnav-hero-section,.about-the-author,#links-div{
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+.translucent-form-overlay input,
+.translucent-form-overlay select,.translucent-form-overlay input::-webkit-input-placeholder,
+.translucent-form-overlay input:-ms-input-placeholder,.translucent-form-overlay input::placeholder {
+  color: #8a8a8a;
+}
+
 /* Top Nav */
-.topbar-responsive {
+ .topbar-responsive {
   background: #2c3840;
   padding: 0rem 1.5rem;
 }
@@ -57,16 +84,6 @@ body{
   text-align: center;
   background-size: repeat;
   position: relative;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  flex-direction: column;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-justify-content: center;
-  -ms-flex-pack: center;
-  justify-content: center;
   height: 200px;
   padding: 50px;
 }
@@ -102,26 +119,27 @@ body{
 }
 
 /* About */
+.about-dish{
+  font-size: 3em;
+}
 .about-the-author {
   background-color: #fefefe;
+  margin: 1rem;
   padding: 1rem;
-  border: 1px solid #cacaca;
 }
-
 .about-the-author .separator-left {
   text-align: left;
 }
 
-.about-the-author .separator-left::before,
-.about-the-author .separator-left::after {
+.about-the-author .separator-left::before, .about-the-author .separator-left::after {
   display: table;
-  content: " ";
+  content: ' ';
   -webkit-flex-basis: 0;
-  -ms-flex-preferred-size: 0;
-  flex-basis: 0;
+      -ms-flex-preferred-size: 0;
+          flex-basis: 0;
   -webkit-order: 1;
-  -ms-flex-order: 1;
-  order: 1;
+      -ms-flex-order: 1;
+          order: 1;
 }
 
 .about-the-author .separator-left::after {
@@ -136,6 +154,22 @@ body{
   margin-left: 0;
 }
 
+.about-img{
+  width: 90%;
+  margin-bottom: 20px;
+}
+
+.about-header{
+  margin: 15px 0px;
+  font-size: 1.5em;
+  font-weight: 500;
+  font-family: "Amaranth", sans-serif; 
+}
+
+.about-p{
+  margin-top: 20px;
+  width: 90%;
+}
 .about-the-author .author-title {
   text-transform: uppercase;
 }
@@ -148,29 +182,15 @@ body{
 /* Recipe Cards */
 #card-holder {
   margin: 20px auto;
-  display: flex;
-  flex-direction: column;
 }
 
 .container {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
   align-content: center;
   justify-items: center;
   flex-wrap: wrap;
 }
 
 .basic-card {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
   margin-bottom: 1rem;
   border: 1px solid #e6e6e6;
   background: #fefefe;
@@ -227,13 +247,11 @@ body{
 }
 
 #links-div {
-  display: flex;
+
   flex: 1;
   margin-bottom: 0px;
   background-color: #2C3840;
   max-height:70px;
-  align-items: center;
-  justify-content: center;
 }
 
 #links-div li {
@@ -294,7 +312,42 @@ body{
   color: #fff;
 }
 
+/* email form  */
+.translucent-form-overlay {
+  max-width: 500px;
+  width: 100%;
+  margin: 20% auto;
+  background-color: rgba(54, 54, 54, 0.9);
+  padding: 20px;
+  color: #fefefe;
+}
 
+.translucent-form-overlay .columns.row {
+  display: block;
+}
+
+.translucent-form-overlay h3 {
+  color: #fefefe;
+  font-family: "Dancing Script", cursive;
+  text-align: center;
+}
+.translucent-form-overlay label {
+  color: #fefefe;
+  text-align: center;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4); 
+}
 
 /* media queries  */
 
@@ -302,10 +355,12 @@ body{
   .subnav-hero-section{
     height: 300px;
   }
+
+  .about-img, .about-p{
+    width: 75%;
+  }
+
   .container {
-    -webkit-flex-direction: column;
-    -ms-flex-direction: column;
-    flex-direction: column;
     flex: 1;
   }
 
@@ -322,15 +377,12 @@ body{
 
 }
 
-
-
 @media (min-width: 1200px) {
   #search-bar{
     width: 500px;
   }
   .subnav-hero-section{
     height: 400px;
-
   }
   .container {
     -webkit-flex-direction: row;
@@ -342,12 +394,28 @@ body{
   }
 
   #card-holder {
-    display: flex;
-    flex-direction: column;
     padding: 20px;
-
   }
 }
+
+@media (min-width:1200px) and (max-width:1500px){
+  .about-img, .about-p{
+    width: 65%;
+  }
+  .about-the-author{
+    margin: 2rem;
+  }
+}
+
+@media (min-width:1500px) {
+  .about-img, .about-p{
+    width: 55%;
+  }
+  .about-the-author{
+    margin: 4rem;
+  }
+}
+
 /* foundation media queries */
   @media screen and (max-width: 39.9375em) {
     .topbar-responsive {
@@ -399,6 +467,8 @@ body{
       margin-bottom: 4px;
     }
   }
+
+  /* foundation keyframes  */
 @-webkit-keyframes fadeIn {
   from {
     opacity: 0;
