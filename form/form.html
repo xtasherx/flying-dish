@@ -4,81 +4,54 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
       var data = {
-        service_id: "default_service",
-        template_id: "recipeapp",
-        user_id: "user_KA18lhvFuEmv0IYKWf8EX",
-        template_params: {
-          email: "xtasherx@gmail.com",
-          message:"Hello World!",
-          name: "tasha",
-        },
-      };
-      $.ajax("https://api.emailjs.com/api/v1.0/email/send", {
-        type: "POST",
-        data: JSON.stringify(data),
-        contentType: "application/json",
-      })
-        .done(function () {
-          alert("Your mail is sent!");
-        })
-        .fail(function (error) {
-          alert("Oops... " + JSON.stringify(error));
-        });
-    </script>
- <div class="translucent-form-overlay">
-  <form>
-    <h3>Search for Properties</h3>
-    <div class="row columns">
-      <label>Keyword
-        <input type="text" name="keyword" placeholder="Any">
-      </label>
-    </div>
-    <div class="row columns">
-      <label>Property Status
-        <select name="status" type="text">
-          <option>Any</option>
-          <option value="rent">Rent</option>
-          <option value="buy">Buy</option>
-        </select>
-      </label>
-    </div>
-    <div class="row columns">
-      <label>Property Type
-        <select name="status" type="text">
-          <option>Any</option>
-          <option value="office">Office</option>
-          <option value="building">Building</option>
-        </select>
-      </label>
-    </div>
-    <div class="row columns">
-      <label>Location
-        <input type="text" name="location" placeholder="Any">
-      </label>
-    </div>
-    <div class="row">
-      <label class="columns small-12">Price</label>
-      <div class="columns small-6">
-        <input type="number" min="0" name="min" placeholder="Min">
-      </div>
-      <div class="columns small-6">
-        <input type="number" min="0" name="max" placeholder="Max">
-      </div>
-    </div>
-    <button type="button" class="primary button expanded search-button">
-      Search
-    </button>
- </form>
-</div>
-
-
-
-
+            service_id: "default_service",
+            template_id: "recipeapp",
+            user_id: "user_KA18lhvFuEmv0IYKWf8EX",
+            template_params: {
+              email: "xtasherx@gmail.com",
+              message:"Hello World!",
+              name: "tasha",
+            },
+          };
+          $.ajax("https://api.emailjs.com/api/v1.0/email/send", {
+            type: "POST",
+            data: JSON.stringify(data),
+            contentType: "application/json",
+          })
+            .done(function () {
+              alert("Your mail is sent!");
+            })
+            .fail(function (error) {
+              alert("Oops... " + JSON.stringify(error));
+            });
+        </script>
+        <!--Email API end-->
+    
+        <!--Forms-->
+        <div class="modal">
+        <div class="translucent-form-overlay">
+          <form>
+            <h3>Send Recipes</h3>
+            <div class="row columns">
+              <label>Name
+                <input type="text" name="keyword">
+              </label>
+            </div>
+            <div class="row columns">
+              <label>Email
+                <input type="text" name="status" type="text">
+              </label>
+            </div>
+            <button type="button" class="primary button expanded search-button">
+              Search
+            </button>
+         </form>
+        </div>
   </body>
 </html>
