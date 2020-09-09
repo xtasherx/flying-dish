@@ -14,4 +14,4 @@ flyingDish is a recipe app that allows users to quickly find recipes that can be
 
 ## [flyingDish](https://xtasherx.github.io/recipeApp/)
 
-![flyingDish screenshot](/fdscreenshot.png)
+![flyingDish screenshot](fdscreenshot.png)
