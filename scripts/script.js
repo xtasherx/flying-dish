@@ -42,7 +42,7 @@ function getRecipes() {
       titles[i].textContent = `${response.results[i].title}`;
       recipeSum[
         i
-      ].innerHTML = `Ready in: ${response.results[i].readyInMinutes} minutes.`;
+      ].innerHTML = `Ready in ${response.results[i].readyInMinutes} minutes.`;
       recipeImg[i].setAttribute(`src`, `${response.results[i].image}`);
       const instHolder = response.results[i].analyzedInstructions[0].steps;
       const ingrHolder = response.results[i].extendedIngredients;

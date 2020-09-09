@@ -1,7 +1,12 @@
+
+body{
+  color: #2C3840;
+  font-family: 'Montserrat', sans-serif;
+}
 /* Top Nav */
 .topbar-responsive {
   background: #2c3840;
-  padding: 1rem 1.5rem;
+  padding: 0rem 1.5rem;
 }
 
 .topbar-responsive .topbar-responsive-logo {
@@ -26,7 +31,7 @@
   color: #fefefe;
   transition: color 0.15s ease-in;
   font-family: "Amaranth", sans-serif;
-  font-size: 25px;
+  font-size: 1.1em;
 }
 
 .topbar-responsive .menu a:hover {
@@ -189,14 +194,25 @@
   width: 100%;
 }
 
-.recipe-name {
-  height: 70px;
-  width: 100%;
+.title-card{
+  background-color: #2C3840;
+  color: white;
   text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 10px;
+  height: 135px;
+}
+.title-card h5{
   font-family: "Dancing Script", cursive;
+
+  font-size: 2em;
+  
+}
+.title-card p {
+  color: #FAC563;
+}
+
+.basic-card-content h5 {
+  font-family: "Amaranth", sans-serif;  color: #2C3840;
 }
 
 .basic-card-content p {
@@ -211,16 +227,26 @@
 }
 
 #links-div {
+  display: flex;
   flex: 1;
   margin-bottom: 0px;
+  background-color: #2C3840;
+  max-height:70px;
+  align-items: center;
+  justify-content: center;
 }
+
+#links-div li {
+    font-family: "Amaranth", sans-serif; 
+}
+
 
 .recipe-title {
   font-weight: bolder;
 }
 
 .ingredient-title {
-  text-decoration: underline;
+ 
   font-weight: bold;
 }
 
@@ -243,10 +269,12 @@
 /* footer  */
 .content {
   flex: 1 0 auto;
+  
 }
 
 .sticky-footer-css {
   flex-shrink: 0;
+  overflow: visible;
 }
 
 .sticky-footer-css .body-content {
@@ -300,7 +328,7 @@
   #search-bar{
     width: 500px;
   }
-  -hero-section{
+  .subnav-hero-section{
     height: 400px;
 
   }
