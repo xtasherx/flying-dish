@@ -53,7 +53,7 @@ body{
 
 /* Subnav */
 .subnav-hero-section {
-  background-image: url("/assets/food.png");
+  background-image: url("../assets/food.png");
   text-align: center;
   background-size: repeat;
   position: relative;
