@@ -1,4 +1,6 @@
+// Initial user search for page load
 let userSearch = "dinner";
+// DOM selection
 const searchButton = document.querySelector(".search-btn");
 const searchBar = document.querySelector(".search-bar");
 const cards = document.querySelectorAll(".basic-card");
@@ -9,7 +11,12 @@ const recipeIng = document.querySelectorAll(".recipe-ing");
 const recipeInst = document.querySelectorAll(".recipe-inst");
 const siteLink = document.querySelectorAll(".site-url");
 const emailBtn = document.querySelectorAll(".email-btn");
-const submitEmailBtn = document.querySelector("#about-me");
+const nameInput = document.querySelector(".name-input");
+const emailInput = document.querySelector(".email-input");
+const modal = document.querySelector(".modal");
+const messageP = document.querySelector(".message-p");
+const exitModal = document.querySelector(".exit-modal");
+const submitEmailBtn = document.querySelector(".search-button");
 
 // object for emailjs parameters
 const data = {
@@ -35,7 +42,7 @@ function getRecipes() {
     url: responseURL,
     method: "GET",
   }).then(function (response) {
-    console.log(response);
+    // loops through cards
     cards.forEach(function (card, i) {
       let instruction = "";
       let ingredient = "";
@@ -46,7 +53,6 @@ function getRecipes() {
       recipeImg[i].setAttribute(`src`, `${response.results[i].image}`);
       const instHolder = response.results[i].analyzedInstructions[0].steps;
       const ingrHolder = response.results[i].extendedIngredients;
-
       siteLink[i].setAttribute(`href`, `${response.results[i].sourceUrl}`);
 
       // loop for instructions array inside response
@@ -60,12 +66,12 @@ function getRecipes() {
 
       recipeInst[i].innerHTML = instruction;
       recipeIng[i].innerHTML = ingredient;
+      // sets data-attributes with recipe info to pass to data object
       emailBtn[i].setAttribute(`data-title`, `${response.results[i].title}`);
       emailBtn[i].setAttribute(
         `data-image`,
         `<img style="width:494px;margin-bottom:0px;"src="${response.results[i].image}">`
       );
-
       emailBtn[i].setAttribute(`data-site`, `${response.results[i].sourceUrl}`);
       emailBtn[i].setAttribute(`data-ingredients`, ingredient);
       emailBtn[i].setAttribute(`data-instructions`, instruction);
@@ -84,9 +90,10 @@ searchButton.addEventListener("click", function () {
   getRecipes();
 });
 
+// event listener for email me button on card
 emailBtn.forEach(function name(params) {
   params.addEventListener("click", () => {
-    // adds data-title value to data object
+    // adds data attribute values to data object
     data.template_params.title = event.target.getAttribute("data-title");
     data.template_params.image = event.target.getAttribute("data-image");
     data.template_params.website = event.target.getAttribute("data-site");
@@ -97,22 +104,36 @@ emailBtn.forEach(function name(params) {
       "data-instructions"
     );
     data.template_params.readyTime = event.target.getAttribute("data-time");
+    // displays email input modal
+    modal.style = "display: block";
   });
 });
-
+// event listener for submit button on the modal
 submitEmailBtn.addEventListener("click", () => {
   event.preventDefault();
-  // data.template_params.email = emailFieldPlaceholder.value();
-  // data.template_params.name = nameFieldPlaceholder.value();
-  $.ajax("https://api.emailjs.com/api/v1.0/email/send", {
-    type: "POST",
-    data: JSON.stringify(data),
-    contentType: "application/json",
-  })
-    .done(function () {
-      alert("Your mail is sent!");
+  // adds user input to the data object if not an empty string
+  if (emailInput.value !== "" && nameInput.value !== "") {
+    data.template_params.email = emailInput.value;
+    data.template_params.name = nameInput.value;
+    messageP.innerHTML = "";
+    messageP.style.color = "white";
+    $.ajax("https://api.emailjs.com/api/v1.0/email/send", {
+      type: "POST",
+      data: JSON.stringify(data),
+      contentType: "application/json",
     })
-    .fail(function (error) {
-      alert("Oops... " + JSON.stringify(error));
-    });
+      .done(function () {
+        messageP.innerHTML = `Your email is sent, check your inbox to get cooking!`;
+      })
+      .fail(function (error) {
+        messageP.innerHTML = `Oops...${JSON.stringify(error)}`;
+      });
+  } else {
+    messageP.innerHTML = `Please fill out all fields.`;
+    messageP.style.color = "red";
+  }
+});
+// event listener for exit on modal
+exitModal.addEventListener("click", () => {
+  modal.style = "display: none";
 });
