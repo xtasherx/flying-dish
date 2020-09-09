@@ -1,5 +1,14 @@
 // Initial user search for page load
-let userSearch = "dinner";
+let userSearch;
+let placeHold;
+if (localStorage.getItem("search")) {
+  placeHold = localStorage.getItem("search");
+  userSearch = placeHold;
+} else {
+  placeHold = "dinner";
+  userSearch = placeHold;
+}
+
 // DOM selection
 const searchButton = document.querySelector(".search-btn");
 const searchBar = document.querySelector(".search-bar");
@@ -88,6 +97,7 @@ getRecipes();
 searchButton.addEventListener("click", function () {
   userSearch = searchBar.value;
   getRecipes();
+  userSearch = localStorage.setItem("search", searchBar.value);
 });
 
 // event listener for email me button on card
