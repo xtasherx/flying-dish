@@ -3,390 +3,70 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="assets/apple-touch-icon.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="assets/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="assets/favicon-16x16.png"
-    />
-    <link rel="manifest" href="assets/site.webmanifest" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Amaranth:ital@1&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Handlee&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&display=swap"
-      rel="stylesheet"
-    />
+    <title>Document</title>
+    <!-- CSS only -->
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
-      integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I="
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
       crossorigin="anonymous"
     />
-    <title>Recipe App</title>
-    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- JS, Popper.js, and jQuery -->
     <script
-      src="https://kit.fontawesome.com/6b4e8f2955.js"
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
       crossorigin="anonymous"
     ></script>
     <script
-      type="text/javascript"
-      src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
     ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <!--Top Nav-->
-    <nav class="top-bar topbar-responsive">
-      <div class="top-bar-title">
-        <a class="topbar-responsive-logo" href="index.html"
-          ><i style="padding: 3px; color: #fac563" class="fas fa-utensils"></i>
-          flyingDish</a
-        >
-      </div>
-      <div id="topbar-responsive" class="topbar-responsive-links">
-        <div class="top-bar-right">
-          <ul class="menu simple vertical medium-horizontal">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html" id="about-me">About</a></li>
-          </ul>
-        </div>
-      </div>
+    <nav class="navbar navbar-light bg-light">
+      <a class="navbar-brand" href="#">FlyingDish</a>
     </nav>
-    <!--Sub Nav-->
-    <header class="hero-search-filter">
-      <header class="subnav-hero-section">
-        <h1 class="subnav-hero-headline">Ready..Set..Cook!</h1>
-        <!--Search field and button-->
-        <div class="input-group input-group-rounded">
-          <input
-            class="input-group-field search-bar"
-            id="search-bar"
-            type="search"
-          />
-          <div class="input-group-button">
-            <input
-              type="submit"
-              class="button secondary search-btn"
-              value="Search"
-            />
+    <div class="container">
+      <div class="card mb-3">
+        <div class="row no-gutters">
+          <div class="col-md-5">
+            <img src="..." class="card-img" alt="..." />
           </div>
-        </div>
-      </header>
-    </header>
-    <!--Main Section/Recipe Cards-->
-    <div class="content">
-      <div id="card-holder">
-        <div class="container align-center">
-          <div class="basic-card">
-            <div class="basic-card-image">
-              <img
-                class="recipe-img"
-                src="https://placeimg.com/640/480/animals"
-              />
-            </div>
-            <div class="title-card">
-              <h5 class="recipe-title">Green Eggs & Ham</h5>
-              <p class="recipe-sum">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi
-                saepe, asperiores dolor nesciunt dolore, accusamus minus
-                repellendus vero odio, quibusdam, ipsum nisi in a molestiae ex
-                assumenda nulla eveniet eos!
-              </p>
-            </div>
-            <div class="basic-card-content content callout secondary">
-              <h5 class="ingredient-title">Ingredients</h5>
-              <p class="recipe-ing">Green Eggs and Green Ham</p>
-              <h5 class="instruction-title">Instructions</h5>
-              <p class="recipe-inst">Cook and Enjoy!</p>
-            </div>
-            <div class="links callout primary" id="links-div">
-              <ul class="menu">
-                <li>
-                  <a class="site-url" href="#" target="_blank"
-                    >Original Website</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="email-btn" data-title="data"
-                    >Email Me This Recipe!</a
-                  >
-                </li>
+          <div class="col-md-7">
+            <div class="card-body">
+              <h4 class="card-title">Card title</h4>
+              <h6>Ingredients</h6>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Cras justo odio</li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Morbi leo risus</li>
+                <li class="list-group-item">Porta ac consectetur ac</li>
+                <li class="list-group-item">Vestibulum at eros</li>
               </ul>
-            </div>
-          </div>
-          <div class="basic-card">
-            <div class="basic-card-image">
-              <img
-                class="recipe-img"
-                src="https://placeimg.com/640/480/animals"
-              />
-            </div>
-            <div class="title-card">
-              <h5 class="recipe-title">Green Eggs & Ham</h5>
-              <p class="recipe-sum">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi
-                saepe, asperiores dolor nesciunt dolore, accusamus minus
-                repellendus vero odio, quibusdam, ipsum nisi in a molestiae ex
-                assumenda nulla eveniet eos!
+              <h6>Instructions</h6>
+              <p class="card-text">
+                This is a wider card with supporting text below as a natural
+                lead-in to additional content. This content is a little bit
+                longer.
               </p>
-            </div>
-            <div class="basic-card-content content callout secondary">
-              <h5 class="ingredient-title">Ingredients</h5>
-              <p class="recipe-ing">Green Eggs and Green Ham</p>
-              <h5 class="instruction-title">Instructions</h5>
-              <p class="recipe-inst">Cook and Enjoy!</p>
-            </div>
-            <div class="links callout primary" id="links-div">
-              <ul class="menu">
-                <li>
-                  <a class="site-url" href="#" target="_blank"
-                    >Original Website</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="email-btn">Email Me This Recipe!</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="basic-card">
-            <div class="basic-card-image">
-              <img
-                class="recipe-img"
-                src="https://placeimg.com/640/480/animals"
-              />
-            </div>
-            <div class="title-card">
-              <h5 class="recipe-title">Green Eggs & Ham</h5>
-              <p class="recipe-sum">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi
-                saepe, asperiores dolor nesciunt dolore, accusamus minus
-                repellendus vero odio, quibusdam, ipsum nisi in a molestiae ex
-                assumenda nulla eveniet eos!
+              <p class="card-text">
+                <small class="text-muted">Last updated 3 mins ago</small>
               </p>
-            </div>
-            <div class="basic-card-content content callout secondary">
-              <h5 class="ingredient-title">Ingredients</h5>
-              <p class="recipe-ing">Green Eggs and Green Ham</p>
-              <h5 class="instruction-title">Instructions</h5>
-              <p class="recipe-inst">Cook and Enjoy!</p>
-            </div>
-            <div class="links callout primary" id="links-div">
-              <ul class="menu">
-                <li>
-                  <a class="site-url" href="#" target="_blank"
-                    >Original Website</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="email-btn" data-title="mac n cheese"
-                    >Email Me This Recipe!</a
-                  >
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div class="container align-center">
-          <div class="basic-card">
-            <div class="basic-card-image">
-              <img
-                class="recipe-img"
-                src="https://placeimg.com/640/480/animals"
-              />
-            </div>
-            <div class="title-card">
-              <h5 class="recipe-title">Green Eggs & Ham</h5>
-              <p class="recipe-sum">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi
-                saepe, asperiores dolor nesciunt dolore, accusamus minus
-                repellendus vero odio, quibusdam, ipsum nisi in a molestiae ex
-                assumenda nulla eveniet eos!
-              </p>
-            </div>
-            <div class="basic-card-content content callout secondary">
-              <h5 class="ingredient-title">Ingredients</h5>
-              <p class="recipe-ing">Green Eggs and Green Ham</p>
-              <h5 class="instruction-title">Instructions</h5>
-              <p class="recipe-inst">Cook and Enjoy!</p>
-            </div>
-            <div class="links callout primary" id="links-div">
-              <ul class="menu">
-                <li>
-                  <a class="site-url" href="#" target="_blank"
-                    >Original Website</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="email-btn">Email Me This Recipe!</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="basic-card">
-            <div class="basic-card-image">
-              <img
-                class="recipe-img"
-                src="https://placeimg.com/640/480/animals"
-              />
-            </div>
-            <div class="title-card">
-              <h5 class="recipe-title">Green Eggs & Ham</h5>
-              <p class="recipe-sum">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi
-                saepe, asperiores dolor nesciunt dolore, accusamus minus
-                repellendus vero odio, quibusdam, ipsum nisi in a molestiae ex
-                assumenda nulla eveniet eos!
-              </p>
-            </div>
-            <div class="basic-card-content content callout secondary">
-              <h5 class="ingredient-title">Ingredients</h5>
-              <p class="recipe-ing">Green Eggs and Green Ham</p>
-              <h5 class="instruction-title">Instructions</h5>
-              <p class="recipe-inst">Cook and Enjoy!</p>
-            </div>
-            <div class="links callout primary" id="links-div">
-              <ul class="menu">
-                <li>
-                  <a class="site-url" href="#" target="_blank"
-                    >Original Website</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="email-btn">Email Me This Recipe!</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="basic-card">
-            <div class="basic-card-image">
-              <img
-                class="recipe-img"
-                src="https://placeimg.com/640/480/animals"
-              />
-            </div>
-            <div class="title-card">
-              <h5 class="recipe-title">Green Eggs & Ham</h5>
-              <p class="recipe-sum">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi
-                saepe, asperiores dolor nesciunt dolore, accusamus minus
-                repellendus vero odio, quibusdam, ipsum nisi in a molestiae ex
-                assumenda nulla eveniet eos!
-              </p>
-            </div>
-            <div class="basic-card-content content callout secondary">
-              <h5 class="ingredient-title">Ingredients</h5>
-              <p class="recipe-ing">Green Eggs and Green Ham</p>
-              <h5 class="instruction-title">Instructions</h5>
-              <p class="recipe-inst">Cook and Enjoy!</p>
-            </div>
-            <div class="links callout primary" id="links-div">
-              <ul class="menu">
-                <li>
-                  <a class="site-url" href="#" target="_blank"
-                    >Original Website</a
-                  >
-                </li>
-                <li>
-                  <a href="#" class="email-btn">Email Me This Recipe!</a>
-                </li>
-              </ul>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-    <!--Pagination-->
-    <ul
-      class="pagination text-center"
-      role="navigation"
-      aria-label="Pagination"
-      data-page="6"
-      data-total="16"
-    >
-      <li class="pagination-previous disabled">
-        Previous <span class="show-for-sr">page</span>
-      </li>
-      <li><a href="index.html" aria-label="Page 1">1</a></li>
-      <li class="current"><span class="show-for-sr">You're on page</span> 2</li>
-      <li><a href="page3.html" aria-label="Page 3">3</a></li>
-      <li class="pagination-next">
-        <a href="page3.html" aria-label="Next page"
-          >Next <span class="show-for-sr">page</span></a
-        >
-      </li>
-    </ul>
-
-        <!-- modal and form  -->
-        <div class="modal">
-
-          <div class="translucent-form-overlay">
-            <a class="exit-modal" href="#">x</a>
-            <form>
-              <h3>Email a Recipe!</h3>
-              <div class="row columns">
-                <label
-                  >Name
-                  <input class="name-input"type="text" name="name" placeholder="Jane"/>
-                </label>
-              </div>
-              <div class="row columns">
-                <label
-                  >Email
-                  <input class="email-input"type="text" name="email" placeholder="jane@janedoe.com"> </select>
-                </label>
-              </div>
-              <button type="button" class="primary button expanded search-button">
-                Submit
-              </button>
-            </form>
-            <p class="message-p"></p>
-          </div>
-      </div>
-      
-    <!--Footer-->
-    <div class="sticky-footer-css">
-      <div class="columns shrink footer text-center">
-        <p>
-          "You don't have to cook fancy or complicated masterpieces, just good
-          food from fresh ingredients."
-        </p>
-        <p>- Julia Child</p>
-      </div>
-    </div>
-
-    <script
-      src="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js"
-      integrity="sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o="
-      crossorigin="anonymous"
-    ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="scripts/script.js"></script>
   </body>
 </html>
